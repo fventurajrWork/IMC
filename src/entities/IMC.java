@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.Scanner;
+
 public class IMC {
 	
 	private double altura;
@@ -30,11 +32,19 @@ public class IMC {
 		Double imc = null;
 		imc = peso / ( altura * altura );
 		return imc.toString();
-		return "IMC [altura=" + altura + ", peso=" + peso + "]";
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Vou calcular o seu IMC");
+		System.out.print("Entre com o seu peso(Kg): ");
+		Double peso = Double.parseDouble(sc.nextLine());
+		System.out.print("Entre com a sua altura(m): ");
+		Double altura = Double.parseDouble(sc.nextLine());
+		IMC imc = new IMC();
+		imc.setAltura(altura); imc.setPeso(peso);
+		System.out.printf("O seu IMC é: %.2f%n",Double.parseDouble(imc.toString()));
+		sc.close();
 
 	}
 
